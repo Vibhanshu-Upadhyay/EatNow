@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
+  let deliveryAmount = 2.0;
 
   const navigate = useNavigate();
   return (
@@ -68,7 +69,10 @@ const Cart = () => {
             <div className="cart-total-detail">
               <b>Total</b>
               <b>
-                ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
+                $
+                {getTotalCartAmount() === 0
+                  ? 0
+                  : (getTotalCartAmount() + deliveryAmount).toFixed(2)}
               </b>
             </div>
           </div>
